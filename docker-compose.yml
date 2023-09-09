@@ -1,0 +1,34 @@
+# configurations that start and link containers
+version: '3'
+# services that we will ne running
+
+services:
+  web: 
+    # we add the directory in which the project exists
+    build: .
+    # host address
+    command: python manage.py runserver 0.0.0.0:8000
+    # volumes save data - data is lost when docker is shut down
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      # ensures django starts after mongo DB
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    volumes:
+      - mongodb_data:/data/db
+
+# this service is where in the container the data will be saved  
+volumes:
+  mongodb_data:

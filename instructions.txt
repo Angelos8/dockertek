@@ -1,0 +1,14 @@
+create a directory where you will fork the project from github: namely,
+you want the to have the dockerfile and docker-compose files
+2. provided you have docker installed, run the command:
+    a. "docker-compose up"
+    b. or to run it the background "docker-compose up -d". Otherwise use two terminals to work
+    go to browser and type "127.0.0.1:8000" 
+    It should show django homepage
+
+Docker commands:
+if you run it the background you can type 
+"docker ps" and it will show you the containers running. From here we can get the id of the container to stop the container from running.
+"docker-compose down" to stop docker running
+"docker exec 04a5a80307ee pkill -f "python manage.py runserver" : the "04a5a80307ee" is the id of the container - replace it
+
