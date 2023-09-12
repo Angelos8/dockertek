@@ -1,0 +1,85 @@
+{
+    "comment_1": "schema for current working version of the report",
+    "current_report": {
+        "_id": "ObjectId",
+        "report_metadata": {
+            "name_of_report": "String",
+            "reporter_of_attack": "String",
+            "authors_of_report": ["String"],
+            "source_of_attack": "String",
+            "date_time_attack": "Date",
+            "location_of_attack": "String",
+            "attack_type": "String",
+            "victim_of_attack": "String",
+            "supporting_data": ["String"],
+            "initial_response_actions": ["String"],
+            "linked_reports": ["ObjectId"]
+        },
+        "document_metadata": {
+            "uploader": "ObjectId",
+            "modifier": "ObjectId",
+            "contributors": ["ObjectId"],
+            "approved_by": "ObjectId",
+            "date_created": "Date",
+            "date_modified": "Date",
+            "revision": "Int"
+        },
+        "report_plaintext": "String",
+        "report_annotated_text": "HTMLString",
+        "tags": ["ObjectId"]
+    },
+    
+    "comment_2": "schema for legacy documents (im thinking we probably dont need to duplicate data that wont change over time?)",
+    "legacy_report": {
+        "_id": "ObjectId",
+        "working_id": "ObjectID",
+        "document_metadata": {
+            "uploader": "ObjectId",
+            "modifier": "ObjectId",
+            "contributors": ["ObjectId"],
+            "approved_by": "ObjectId",
+            "date_created": "Date",
+            "date_modified": "Date",
+            "revision": "Int"
+        },
+        "tags": ["ObjectId"]
+    },
+    
+    "comment_3": "schema for pending reports",
+    "pending_report": {
+        "_id": "ObjectId",
+        "report_metadata": {
+            "name_of_report": "String",
+            "reporter_of_attack": "String",
+            "authors_of_report": ["String"],
+            "source_of_attack": "String",
+            "date_time_attack": "Date",
+            "location_of_attack": "String",
+            "attack_type": "String",
+            "victim_of_attack": "String",
+            "supporting_data": ["String"],
+            "initial_response_actions": ["String"],
+            "linked_reports": ["ObjectId"]
+        },
+        "document_metadata": {
+            "uploader": "ObjectId",
+            "modifier": "ObjectId",
+            "contributors": ["ObjectId"],
+            "approved_by": "ObjectId",
+            "date_created": "Date",
+            "date_modified": "Date",
+            "revision": "Int"
+        },
+        "report_plaintext": "String",
+        "report_annotated_text": "HTMLString",
+        "tags": ["ObjectId"] 
+    },
+    
+    "comment_4": "schema for user info",
+    "user": {
+        "_id": "ObjectId",
+        "username": "String",
+        "password": "String (hash)",
+        "role": "String"
+    }
+}
